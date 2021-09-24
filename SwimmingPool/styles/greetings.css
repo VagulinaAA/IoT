@@ -18,15 +18,17 @@ body{
     line-height: 21px;
     letter-spacing: 0.05em;
     color: #000000;
-    bottom: 70%;
+    bottom: 60%;
 }
 #greetings-div{
     position: absolute;
     width: 703px;
-    height: 442px;
+    height: 642px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 4px rgba(143, 141, 141, 0.25);
 }
 #greetings-start{
     box-shadow: 3px 3px 3px darkgrey;
