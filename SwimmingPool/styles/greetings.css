@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "SF Pro Regular";
+    src: url("/fonts/SF-Pro-Display-Regular.otf");
+}
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#pool-title{
+    position: absolute;
+    width: auto;
+    height: auto;
+    font-family: SF Pro Regular;
+    font-size: 32pt;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    bottom: 70%;
+}
+#greetings-div{
+    position: absolute;
+    width: 703px;
+    height: 442px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#greetings-start{
+    box-shadow: 3px 3px 3px darkgrey;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    top: 60%;
+    position: absolute;
+    background: #3E9DF9;
+    border: 0;
+    border-radius: 7px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-family: SF Pro Regular;
+    font-size: 28px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
