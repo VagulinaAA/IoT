@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "SF Pro Regular";
+    src: url("/fonts/SF-Pro-Display-Regular.otf");
+}
+input[type="text"]
+{
+    font-size: 20pt;
+    padding-left: 15px;
+}
+input::placeholder
+{
+    color: #d2d0d0;
+    font-size: 20pt;
+}
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#pool-title{
+    position: absolute;
+    width: auto;
+    height: auto;
+    font-family: SF Pro Regular;
+    font-size: 20pt;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    bottom: 77%;
+}
+#greetings-div{
+    position: absolute;
+    flex-wrap: wrap;
+    width: 703px;
+    height: 642px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 4px rgba(143, 141, 141, 0.25);
+}
+.block-input{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 45%;
+}
+.block-btn{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 18%;
+}
+#sign-in-btn{
+    cursor: pointer;
+    width: 500px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
+    background: #3E9DF9;
+    border-radius: 4px;
+    border: 0;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-family: SF Pro Regular;
+    font-size: 18pt;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+#sign-up-btn{
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 500px;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
+    background: #3E9DF9;
+    border-radius: 4px;
+    border: 0;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-family: SF Pro Regular;
+    font-size: 18pt;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+#email-input{
+    margin-bottom: 20px;
+    width: 500px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    /* UI/Background */
+    background: #FFFFFF;
+    /* Secondary text */
+    border: 1px solid #B4B4B4;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+#password-input{
+    margin-bottom: 20px;
+    width: 500px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    /* UI/Background */
+    background: #FFFFFF;
+    /* Secondary text */
+    border: 1px solid #B4B4B4;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
