@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Start training</title>
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/start.css">
+        <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    </head>
+    <body class="font-settings">
+        <div class="container">
+            <div class="row mt-4 justify-content-between">
+                <button type="button" class="btn btn-outline-primary col-3" data-toggle="modal" data-target="#sportsmanModal">Достоевский Федор Михайлович</button>
+                <button type="button" class="btn btn-outline-primary col-2" data-toggle="modal" data-target="#trainingModal">Кардио рывок</button>
+            </div>
+            <div class="row mt-4 pb-4 justify-content-around">
+                <div class="col-5 card">
+                    <div class="card-body">
+                        <div>График</div>
+                        <div class="text-position">
+                            <p class="card-text">Пульс от времени</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="offset-2 col-5 card">
+                    <div class="card-body">
+                        <div>График</div>
+                        <div class="text-position">
+                            <p class="card-text">Скорость</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 justify-content-around">
+                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                    <p>Время</p>
+                    
+                </div>
+                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                    <p class="big-number">0</p>
+                </div>
+                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                    <p>Пульс</p>
+                </div>
+                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                    <p class="big-number">0</p>
+                </div>
+            </div>
+            <div class="row mt-4 justify-content-around">
+                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                    <p>Скорость</p>
+                </div>
+                <div class="d-flex col-3 card-text justify-content-between align-items-center">
+                    <button class="btn btn-secondary disabled mb-3">-</button>
+                    <p class="big-number">0</p>
+                    <button class="btn btn-secondary disabled mb-3">+</button>
+                </div>
+                <div class="d-flex col-6 justify-content-around align-items-center">
+                    <button class="btn btn-success btn-lg"><p id="start">Старт</p></button>
+                    <button class="btn btn-danger btn-lg d-none"><p id="stop">Стоп</p></button>
+                </div>
+            </div>
+        </div>
+  
+        <div class="modal fade" id="sportsmanModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Карточка спортсмена</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row d-flex">
+                                <p class="offset-1 col-3">ФИО</p>
+                                <p class="col-5">Достоевский Федор Михайлович</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-3">Возраст</p>
+                                <p class="col-5">27 лет</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-3">Рост</p>
+                                <p class="col-5">178 см</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-3">Вес</p>
+                                <p class="col-5">72 кг</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary align-self-start">История тренировок</button>
+                        <button type="button" class="btn btn-outline-primary">Достижения</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="trainingModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Информация о тренировке</h5>
+                        <h5 class="modal-title">Кардио рывок</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row d-flex">
+                                <h5 class="offset-1 col-2 text-center">Время</h5>
+                                <h5 class="offset-1 col-3 text-center">Нижняя граница пульса</h5>
+                                <h5 class="offset-1 col-3 text-center">Верхняя граница пульса</h5>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-2 text-center">20 сек</p>
+                                <p class="offset-1 col-3 text-center">60 уд/мин</p>
+                                <p class="offset-1 col-3 text-center">70 уд/мин</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-2 text-center">30 сек</p>
+                                <p class="offset-1 col-3 text-center">65 уд/мин</p>
+                                <p class="offset-1 col-3 text-center">75 уд/мин</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-2 text-center">...</p>
+                                <p class="offset-1 col-3 text-center">...</p>
+                                <p class="offset-1 col-3 text-center">...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary align-self-start">История тренировок</button>
+                        <button type="button" class="btn btn-outline-primary">Достижения</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
