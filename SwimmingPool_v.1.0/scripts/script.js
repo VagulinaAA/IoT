@@ -13,3 +13,9 @@ function f_sign_in(){
         console.log("Wrong!");
     }
 }
+function f_sign_up(){
+    document.location.replace("sign_up.html");
+}
+function f_back_to_sign_in(){
+    document.location.replace("sign_in.html");
+}

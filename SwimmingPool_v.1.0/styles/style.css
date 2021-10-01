@@ -44,4 +44,11 @@
 .sign-in-title{
     font-size: 18pt;
 }
+.previous {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f1f1f1;
+    color: black;
+}
 
