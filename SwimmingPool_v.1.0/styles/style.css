@@ -2,12 +2,22 @@
     font-family: "SF Pro Regular";
     src: url("/fonts/SF-Pro-Display-Regular.otf");
 }
+.border-secondary{
+    border-color: darkgrey;
+    border-radius: 7px;
+}
 .button-position{
     margin-top: 18vh;
 }
 .card{
     height: 60vh;
     box-shadow: 3px 4px 6px rgba(143, 141, 141, 0.25);
+}
+.choose-sportsman-button{
+    font-size: 15pt!important;
+    width: 99%;
+    padding-top: 1%!important;
+    padding-bottom: 1%!important;
 }
 .cover-container{
     height: 100vh;

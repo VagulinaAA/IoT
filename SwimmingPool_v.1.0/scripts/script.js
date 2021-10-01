@@ -8,6 +8,7 @@ function f_sign_in(){
     let sys_password = "admin";
     if (login == sys_login && password == sys_password){
         console.log("Right!");
+        document.location.replace("choose_sportsman.html");
     }
     else{
         console.log("Wrong!");
