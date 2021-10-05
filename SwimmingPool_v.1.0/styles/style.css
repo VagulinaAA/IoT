@@ -7,11 +7,12 @@
     border-radius: 7px;
 }
 .button-position{
-    margin-top: 18vh;
+    margin-top: 18%;
+    margin-bottom: 10%;
 }
 .card{
-    /*height: 60vh;*/
-    height: 460px;
+    height: 60%;
+    /*height: 460px;*/
     box-shadow: 3px 4px 6px rgba(143, 141, 141, 0.25);
 }
 .choose-sportsman-button{
@@ -46,7 +47,7 @@
     font-size: 32pt;
 }
 .title-position{
-    margin-top: 10vh;
+    margin-top: 10%;
 }
 .sign-in-button{
     font-size: 18pt;
