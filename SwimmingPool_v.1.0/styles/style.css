@@ -2,8 +2,17 @@
     font-family: "SF Pro Regular";
     src: url("/fonts/SF-Pro-Display-Regular.otf");
 }
-.border-secondary{
-    border-color: darkgrey;
+.another-button{
+    border: 3px solid #3E9DF9!important;
+    background: #ffffff!important;
+    color: #3E9DF9!important;
+}
+.another-button:hover{
+    background-color: #0282ff!important;
+    color: #ffffff!important;
+}
+.border-3{
+    border: solid darkgrey!important;
     border-radius: 7px;
 }
 .button-position{
@@ -12,7 +21,6 @@
 }
 .card{
     height: 60%;
-    /*height: 460px;*/
     box-shadow: 3px 4px 6px rgba(143, 141, 141, 0.25);
 }
 .choose-sportsman-button{
@@ -28,7 +36,7 @@
 .custom-button{
     box-shadow: 3px 3px 3px darkgrey;
     background: #3E9DF9;
-    border: 0;
+    border: 3px solid #3E9DF9!important;
     border-radius: 7px;
     color: #FFFFFF;
     padding-top: 2%;
@@ -46,8 +54,24 @@
 .card-text{
     font-size: 32pt;
 }
+.list-group{
+    border-radius: 7px;
+}
+.list-group-item{
+    cursor: pointer;
+}
+.list-group-item:hover{
+    background-color: #f6f6f6;
+}
 .title-position{
     margin-top: 10%;
+}
+.scroll{
+    height: 245px;
+    overflow-y: scroll;
+}
+.search-hide{
+    display: none!important;
 }
 .sign-in-button{
     font-size: 18pt;
