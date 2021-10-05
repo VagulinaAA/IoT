@@ -10,7 +10,8 @@
     margin-top: 18vh;
 }
 .card{
-    height: 60vh;
+    /*height: 60vh;*/
+    height: 460px;
     box-shadow: 3px 4px 6px rgba(143, 141, 141, 0.25);
 }
 .choose-sportsman-button{
