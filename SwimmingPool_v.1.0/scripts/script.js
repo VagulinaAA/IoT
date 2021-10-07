@@ -49,6 +49,7 @@ function f_sign_in(){
     }
     else{
         console.log("Wrong!");
+        document.getElementById("sign-in-error").classList.remove("search-hide");
     }
 }
 function f_sign_up(){
