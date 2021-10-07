@@ -90,4 +90,10 @@ function f_sportsman_search(){
         }
     }
 }
+function f_back_to_choose_sportsman(){
+    document.location.replace("choose_sportsman.html");
+}
+function f_add_sportsman(){
+    document.location.replace("add_sportsman.html");
+}
 

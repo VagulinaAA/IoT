@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add sportsman</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings">
+    <div class="container-fluid cover-container text-center d-flex flex-column">
+        <div class="row align-items-center justify-content-center flex-fill">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text mb-3 mt-2 sign-in-title">Добавить спортсмена</p>
+                        <div class="row align-items-center justify-content-center flex-fill">
+                            <div class="col-md-10">
+                                <div class="input-group-lg mt-2 mb-3">
+                                    <input id="input-fio" type="text" class="form-control sign-in-input" placeholder="Введите ФИО">
+                                </div>
+                                <div class="input-group-lg mt-2 mb-3">
+                                    <input id="input-age" type="text" class="form-control sign-in-input" placeholder="Введите возраст">
+                                </div>
+                                <div class="input-group-lg mt-2 mb-3">
+                                    <input id="input-size" type="text" class="form-control sign-in-input" placeholder="Введите рост (см)">
+                                </div>
+                                <div class="input-group-lg mt-2 mb-3">
+                                    <input id="input-weight" type="text" class="form-control sign-in-input" placeholder="Введите вес (кг)">
+                                </div>
+                                <div class="row align-items-center justify-content-center flex-fill">
+                                    <div class="col-md-6 mt-3">
+                                        <button id="add-sportsman-back-btn" class="custom-button choose-sportsman-button another-button mb-4" onclick="f_back_to_choose_sportsman()">Назад</button>
+                                    </div>
+                                    <div class="col-md-6 mt-3">
+                                        <button id="add-sportsman-create-btn" class="custom-button choose-sportsman-button mb-4">Добавить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>
