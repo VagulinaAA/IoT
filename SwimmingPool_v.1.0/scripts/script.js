@@ -2,37 +2,65 @@ var writers = [{
     name: "Достоевский Фёдор Михайлович",
     age: 18,
     size: 178,
-    weight: 77
+    weight: 77,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Пушкин Александр Сергеевич",
     age: 19,
     size: 180,
-    weight: 87
+    weight: 87,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Набоков Владимир Владимирович",
     age: 38,
     size: 168,
-    weight: 64
+    weight: 64,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Пелевин Виктор Олегович",
     age: 23,
     size: 182,
-    weight: 72
+    weight: 72,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Гоголь Николай Васильевич",
     age: 34,
     size: 179,
-    weight: 78
+    weight: 78,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Булгаков Михаил Афанасьевич",
     age: 29,
     size: 183,
-    weight: 85
+    weight: 85,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 },{
     name: "Чехов Антон Павлович",
     age: 41,
     size: 188,
-    weight: 89
+    weight: 89,
+    distance: 12,
+    tquantity: 3,
+    time: 120,
+    avepulse: 74
 }];
 
 function f_log_in(){
@@ -71,7 +99,40 @@ function f_sportsman_click() {
         document.getElementById("s_age").textContent = writers[number-1].age;
         document.getElementById("s_size").textContent = writers[number-1].size;
         document.getElementById("s_weight").textContent = writers[number-1].weight;
+        var sname = writers[number-1].name;
+        localStorage.setItem('objectToPass1', sname);
+        var sdist = writers[number-1].distance;
+        localStorage.setItem('objectToPass2', sdist);
+        var stquant = writers[number-1].tquantity;
+        localStorage.setItem('objectToPass3', stquant);
+        var stime = writers[number-1].time;
+        localStorage.setItem('objectToPass4', stime);
+        var savepulse = writers[number-1].avepulse;
+        localStorage.setItem('objectToPass5', savepulse);
     });
+}
+function f_achievements_click(){
+    document.location.replace("achievements.html");
+}
+function f_achievements_back_click(){
+    document.location.replace("choose_sportsman.html");
+}
+function f_ach_loader(){
+    var sname = localStorage['objectToPass1'];
+    localStorage.removeItem('objectToPass1');
+    document.getElementById("s_name").textContent = sname;
+    var sdist = localStorage['objectToPass2'];
+    localStorage.removeItem('objectToPass2');
+    document.getElementById("s_dist").textContent = sdist;
+    var stquant = localStorage['objectToPass3'];
+    localStorage.removeItem('objectToPass3');
+    document.getElementById("s_tquant").textContent = stquant;
+    var stime = localStorage['objectToPass4'];
+    localStorage.removeItem('objectToPass4');
+    document.getElementById("s_time").textContent = stime;
+    var savepulse = localStorage['objectToPass5'];
+    localStorage.removeItem('objectToPass5');
+    document.getElementById("s_pulseave").textContent = savepulse;
 }
 function f_sportsman_search(){
     let search_text = document.getElementById("search").value;

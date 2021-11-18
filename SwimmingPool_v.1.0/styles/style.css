@@ -6,6 +6,7 @@
     border: 3px solid #3E9DF9!important;
     background: #ffffff!important;
     color: #3E9DF9!important;
+    border-radius: 7px;
 }
 .another-button:hover{
     background-color: #0282ff!important;

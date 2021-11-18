@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings" onload="f_ach_loader()">
+    <div class="container-fluid cover-container text-center d-flex flex-column">
+        <div class="row align-items-center justify-content-center flex-fill">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-1 mb-3">Достижения</h5>
+                        <h5 id="s_name" class="card-title mt-1 mb-3"></h5>
+                        <div class="border-3">
+                            <div class="row align-items-center justify-content-center flex-fill mt-3">
+                                <div class="col-md-6 text-left mt-2">
+                                    <p class="text-md-start">Дистанция (км):</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="text-md-start mt-3" id="s_dist"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill">
+                                <div class="col-md-6">
+                                    <p class="text-md-start">Кол-во тренировок:</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="text-md-start" id="s_tquant"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill">
+                                <div class="col-md-6">
+                                    <p class="text-md-start">Время (мин):</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="text-md-start" id="s_time"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill mb-3">
+                                <div class="col-md-6">
+                                    <p class="text-md-start">Ср. пульс (уд/мин):</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p class="text-md-start" id="s_pulseave"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="achievements-back-btn" class="another-button choose-sportsman-button mt-4 mb-3" onclick="f_achievements_back_click()">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>
