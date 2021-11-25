@@ -1,3 +1,89 @@
+var trainings = [{
+    name: "Кардио-рывок",
+    row_1:{
+        time: 5,
+        pulsemax: 80,
+        pulsemin: 72
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 100,
+        pulsemin: 75
+    }
+},{
+    name: "Кардио-релакс",
+    row_1:{
+        time: 5,
+        pulsemax: 79,
+        pulsemin: 71
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 110,
+        pulsemin: 70
+    }
+},{
+    name: "Восстановление",
+    row_1:{
+        time: 5,
+        pulsemax: 75,
+        pulsemin: 70
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 80,
+        pulsemin: 70
+    }
+},{
+    name: "Моя тренировка 1",
+    row_1:{
+        time: 5,
+        pulsemax: 80,
+        pulsemin: 72
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 100,
+        pulsemin: 75
+    }
+},{
+    name: "Моя тренировка 2",
+    row_1:{
+        time: 5,
+        pulsemax: 80,
+        pulsemin: 72
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 100,
+        pulsemin: 75
+    }
+},{
+    name: "Моя тренировка 3",
+    row_1:{
+        time: 5,
+        pulsemax: 80,
+        pulsemin: 72
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 100,
+        pulsemin: 75
+    }
+},{
+    name: "Моя тренировка 4",
+    row_1:{
+        time: 5,
+        pulsemax: 80,
+        pulsemin: 72
+    },
+    row_2:{
+        time: 10,
+        pulsemax: 100,
+        pulsemin: 75
+    }
+}]
+
 var writers = [{
     name: "Достоевский Фёдор Михайлович",
     age: 18,
@@ -296,4 +382,58 @@ function f_back_to_choose_sportsman(){
 function f_add_sportsman(){
     document.location.replace("add_sportsman.html");
 }
+function f_choose_training(){
+    document.location.replace("choose_training.html");
+}
+function f_training_click() {
+    document.addEventListener('click',function(e){
+        for(element of document.getElementsByClassName("list-group")[0].children){
+             element.classList.remove("active");
+         };
+        e.target.classList.add("active");
+        let splitted = e.target.id.split("_");
+        var number = splitted[1];
+        document.getElementById("t_name").textContent = trainings[number-1].name;
+        document.getElementById("time").textContent = trainings[number-1].row_1.time;
+        document.getElementById("pmax").textContent = trainings[number-1].row_1.pulsemax;
+        document.getElementById("pmin").textContent = trainings[number-1].row_1.pulsemin;
 
+        document.getElementById("time_2").textContent = trainings[number-1].row_2.time;
+        document.getElementById("pmax_2").textContent = trainings[number-1].row_2.pulsemax;
+        document.getElementById("pmin_2").textContent = trainings[number-1].row_2.pulsemin;
+    });
+}
+function f_add_training(){
+    document.location.replace("add_training.html");
+}
+function f_back_to_choose_training(){
+    document.location.replace("choose_training.html");
+}
+function f_edit_training(){
+    var parent_time = document.getElementById("time_add");
+    var input_time = document.createElement("input");
+    input_time.setAttribute('type', 'text');
+    input_time.setAttribute('placeholder', 'Время');
+    input_time.setAttribute('class', 'edit-input form-control');
+    parent_time.appendChild(input_time); 
+
+    var parent_pmax = document.getElementById("pmax_add");
+    var input_pmax = document.createElement("input");
+    input_pmax.setAttribute('type', 'text');
+    input_pmax.setAttribute('placeholder', 'Пульс(max)');
+    input_pmax.setAttribute('class', 'edit-input form-control');
+    parent_pmax.appendChild(input_pmax); 
+
+    var parent_pmin = document.getElementById("pmin_add");
+    var input_pmin = document.createElement("input");
+    input_pmin.setAttribute('type', 'text');
+    input_pmin.setAttribute('placeholder', 'Пульс(min)');
+    input_pmin.setAttribute('class', 'edit-input form-control');
+    parent_pmin.appendChild(input_pmin); 
+
+    var parent_ok = document.getElementById("ok");
+    var btn_ok = document.createElement("button");
+    btn_ok.innerHTML = "Добавить";
+    btn_ok.setAttribute('class', 'edit-btn');
+    parent_ok.appendChild(btn_ok);
+}
