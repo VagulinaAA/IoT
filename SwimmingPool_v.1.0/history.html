@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings" onload="f_history_loader()">
+    <div class="container-fluid cover-container text-center d-flex flex-column">
+        <div class="row align-items-center justify-content-center flex-fill">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-1 mb-3">История тренировок</h5>
+                        <h5 id="s_name" class="card-title mt-1 mb-3"></h5>
+                        <div class="border-3">
+                            <div class="container">
+                                <div class="row table-header mt-3 mb-3">
+                                  <div class="col">
+                                    Дата
+                                  </div>
+                                  <div class="col">
+                                    Пульс(max)
+                                  </div>
+                                  <div class="col">
+                                    Пульс(min)
+                                  </div>
+                                  <div class="col">
+                                    Дистанция
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col" id="history_date">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_pulse_max">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_pulse_min">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_distance">
+                                      Column
+                                    </div>
+                                  </div>
+                                  <div class="row mb-3">
+                                    <div class="col" id="history_date_2">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_pulse_max_2">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_pulse_min_2">
+                                      Column
+                                    </div>
+                                    <div class="col" id="history_distance_2">
+                                      Column
+                                    </div>
+                                  </div>
+                              </div>
+                        </div>
+                        <button id="achievements-back-btn" class="another-button choose-sportsman-button mt-4 mb-3" onclick="f_history_back_click()">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

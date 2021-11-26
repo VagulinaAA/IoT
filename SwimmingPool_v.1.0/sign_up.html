@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings">
+  <div class="container-fluid cover-container text-center d-flex flex-column">
+    <div class="row align-items-center justify-content-center flex-fill">
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text mb-3 mt-2 sign-in-title">SMART SWIMMING POOL</p>
+            <div class="row align-items-center justify-content-center flex-fill">
+              <div class="col-md-10">
+                <div class="input-group-lg mt-2 mb-3">
+                  <input id="new-login" type="text" class="form-control sign-in-input" placeholder="Введите логин">
+                </div>
+                <div class="input-group-lg mt-2 mb-3">
+                  <input id="new-password" type="text" class="form-control sign-in-input" placeholder="Введите пароль">
+                </div>
+                <div class="input-group-lg mb-4">
+                  <input id="check-new-password" type="text" class="form-control sign-in-input" placeholder="Введите пароль ещё раз">
+                </div>
+              </div>
+            </div>
+            <div class="button-block">
+              <button id="signing-up-btn" class="custom-button sign-in-button mb-3">Регистрация</button>
+              <button id="back-to-sign-in-btn" class="custom-button sign-in-button mb-4" onclick="f_back_to_sign_in()">Назад</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/script.js"></script>
+  <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

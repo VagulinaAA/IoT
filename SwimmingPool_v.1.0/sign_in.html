@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings">
+    <div class="container-fluid cover-container text-center d-flex flex-column">
+        <div class="row align-items-center justify-content-center flex-fill">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text mb-4 mt-3 sign-in-title">SMART SWIMMING POOL</p>
+                        <div class="row align-items-center justify-content-center flex-fill">
+                            <div class="col-md-10">
+                                <p id="sign-in-error" class="error search-hide mb-4">Логин и/или пароль введены неверно. Пожалуйста, попробуйте ещё раз!</p>
+                                <div class="input-group-lg mt-2 mb-4">
+                                    <input id="login" type="text" class="form-control sign-in-input" placeholder="Введите логин">
+                                </div>
+                                <div class="input-group-lg mb-5">
+                                    <input id="password" type="text" class="form-control sign-in-input" placeholder="Введите пароль">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-block">
+                            <button id="sign-in-btn" class="custom-button sign-in-button mb-4" onclick="f_sign_in()">Войти</button>
+                            <button id="sign-up-btn" class="custom-button sign-in-button mb-4" onclick="f_sign_up()">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

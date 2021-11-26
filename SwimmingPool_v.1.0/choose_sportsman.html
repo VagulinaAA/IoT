@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose sportsman</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+<body class="font-settings" onload="f_sportsman_click()">
+    <div class="container-fluid cover-container text-center d-flex flex-column">
+        <div class="row align-items-center justify-content-center flex-fill">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-1 mb-3">Выберите спортсмена</h5>
+                        <input id="search" class="border-3 form-control mb-2" placeholder="Поиск" oninput="f_sportsman_search()"/>
+                        <div class="border-3">
+                            <ul class="list-group scroll">
+                                <li id="i_1" class="list-group-item">Достоевский Фёдор Михайлович</li>
+                                <li id="i_2" class="list-group-item">Пушкин Александр Сергеевич</li>
+                                <li id="i_3" class="list-group-item">Набоков Владимир Владимирович</li>
+                                <li id="i_4" class="list-group-item">Пелевин Виктор Олегович</li>
+                                <li id="i_5" class="list-group-item">Гоголь Николай Васильевич</li>
+                                <li id="i_6" class="list-group-item">Булгаков Михаил Афанасьевич</li>
+                                <li id="i_7" class="list-group-item">Чехов Антон Павлович</li>
+                            </ul>
+                        </div>
+                        <div class="row align-items-center justify-content-center flex-fill">
+                            <div class="col-md-6 mt-4">
+                                <button id="sportsman-back-btn" class="custom-button choose-sportsman-button another-button mb-3" onclick="f_back_to_sign_in()">Назад</button>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <button id="sportsman-create-btn" class="custom-button choose-sportsman-button mb-3" onclick="f_add_sportsman()">Создать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-1 mb-3">Карточка спортсмена</h5>
+                        <div class="border-3">
+                            <div class="row align-items-center justify-content-center flex-fill mt-4">
+                                <div class="col-md-3 text-left mt-3">
+                                    <p class="text-md-start">ФИО:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-md-start mt-3" id="s_name"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill">
+                                <div class="col-md-3">
+                                    <p class="text-md-start">Возраст:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-md-start" id="s_age"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill">
+                                <div class="col-md-3">
+                                    <p class="text-md-start">Рост:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-md-start" id="s_size"></p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center flex-fill mb-4">
+                                <div class="col-md-3">
+                                    <p class="text-md-start">Вес:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="text-md-start" id="s_weight"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center flex-fill">
+                            <div class="col-md-7 mt-4">
+                                <button id="sportsman-history-btn" class="custom-button choose-sportsman-button another-button" onclick="f_history_click()">История тренировок</button>
+                            </div>
+                            <div class="col-md-5 mt-4">
+                                <button id="sportsman-achievements-btn" class="custom-button choose-sportsman-button another-button" onclick="f_achievements_click()">Достижения</button>
+                            </div>
+                        </div>
+                        <button id="choose-sportsman-btn" class="custom-button choose-sportsman-button mt-4 mb-3" onclick="f_choose_training()">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>
