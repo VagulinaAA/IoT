@@ -39,9 +39,10 @@
                     <p>Время</p>
                     
                 </div>
-                <div class="d-flex col-3 card-text justify-content-around align-items-center">
-                    <p class="big-number">0</p>
-                </div>
+                <form name="timer_form" class="d-flex col-3 card-text justify-content-center align-items-center">
+                    <span id="timer-minutes" class="big-number">00</span>
+                    <span id="timer-seconds" class="big-number">:00</span>
+                </form>
                 <div class="d-flex col-3 card-text justify-content-around align-items-center">
                     <p>Пульс</p>
                 </div>
@@ -59,8 +60,8 @@
                     <button class="btn btn-secondary disabled mb-3" id="speedIncrease">+</button>
                 </div>
                 <div class="d-flex col-6 justify-content-around align-items-center">
-                    <button class="btn btn-success btn-lg" id="btnStart" onclick="startOnClick();"><p id="start">Старт</p></button>
-                    <button class="btn btn-danger btn-lg d-none" id="btnStop" data-toggle="modal" data-target="#isSaveModal"><p id="stop">Стоп</p></button>
+                    <button class="btn btn-success btn-lg" id="btnStart" name="start" onclick="startOnClick();"><p id="start">Старт</p></button>
+                    <button class="btn btn-danger btn-lg d-none" id="btnStop" name="stop" data-toggle="modal" data-target="#isSaveModal"><p id="stop">Стоп</p></button>
                 </div>
             </div>
         </div>

@@ -233,6 +233,8 @@ var writers = [{
     }
 }];
 
+// Start-training-window functions start
+
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
@@ -240,6 +242,32 @@ myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
 
+var cron;
+
+function start(minute, second) {
+    pause(cron);
+    cron = setInterval(() => {
+        if (second == 60) {
+            second = 0;
+            minute++;
+        }
+        document.getElementById('timer-minutes').innerText = returnData(minute);
+        document.getElementById('timer-seconds').innerText = ":" + returnData(second);
+        second++;
+    }, 1000);
+}
+function pause(cron) {
+    clearInterval(cron);
+}
+function reset() {
+    clearInterval(cron);
+    document.getElementById('timer-minutes').innerText = '00';
+    document.getElementById('timer-seconds').innerText = ':00';
+}
+
+function returnData(input) {
+    return input > 9 ? input : `0${input}`
+}
 function startOnClick() {
   document.getElementById("btnStart").classList.add("d-none");
   document.getElementById("btnStop").classList.remove("d-none");
@@ -252,6 +280,9 @@ function startOnClick() {
 
   plusBtn.classList.remove("btn-secondary", "disabled");
   minusBtn.classList.remove("btn-secondary", "disabled");
+  var minute = 0;
+  var second = 0;
+  start(minute, second);
 }
 
 function stopOnClick() {
@@ -266,7 +297,10 @@ function stopOnClick() {
 
   plusBtn.classList.add("btn-secondary", "disabled");
   minusBtn.classList.add("btn-secondary", "disabled");
+  reset();
 }
+
+// Start-training-window functions finish
 
 function f_sign_in(){
     let login = document.querySelector("#login").value;
