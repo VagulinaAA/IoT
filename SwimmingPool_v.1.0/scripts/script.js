@@ -233,18 +233,41 @@ var writers = [{
     }
 }];
 
-function f_log_in(){
-    document.location.replace("sign_in.html");
-}
-document.querySelector("#button-start").addEventListener('click', function(){f_log_in()});
-
-
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
 myModal.addEventListener('shown.bs.modal', function () { 
   myInput.focus()
 })
+
+function startOnClick() {
+  document.getElementById("btnStart").classList.add("d-none");
+  document.getElementById("btnStop").classList.remove("d-none");
+
+  var plusBtn = document.getElementById("speedIncrease");
+  var minusBtn = document.getElementById("speedDecrease");
+
+  plusBtn.classList.add("btn-primary");
+  minusBtn.classList.add("btn-primary");
+
+  plusBtn.classList.remove("btn-secondary", "disabled");
+  minusBtn.classList.remove("btn-secondary", "disabled");
+}
+
+function stopOnClick() {
+  document.getElementById("btnStart").classList.remove("d-none");
+  document.getElementById("btnStop").classList.add("d-none");
+
+  var plusBtn = document.getElementById("speedIncrease");
+  var minusBtn = document.getElementById("speedDecrease");
+
+  plusBtn.classList.remove("btn-primary");
+  minusBtn.classList.remove("btn-primary");
+
+  plusBtn.classList.add("btn-secondary", "disabled");
+  minusBtn.classList.add("btn-secondary", "disabled");
+}
+
 function f_sign_in(){
     let login = document.querySelector("#login").value;
     let password = document.querySelector("#password").value;

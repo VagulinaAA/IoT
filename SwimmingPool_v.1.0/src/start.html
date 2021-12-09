@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Start training</title>
+
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/start.css">
         <link rel="stylesheet" href="../styles/bootstrap.min.css">
+
+        <script src="../scripts/script.js"></script>
     </head>
     <body class="font-settings">
         <div class="container">
@@ -47,21 +50,23 @@
                 </div>
             </div>
             <div class="row mt-4 justify-content-around">
-                <div class="d-flex col-3 card-text justify-content-around align-items-center">
+                <div class="d-flex col-3 card-text justify-content-around align-items-center mt-4">
                     <p>Скорость</p>
                 </div>
-                <div class="d-flex col-3 card-text justify-content-between align-items-center">
-                    <button class="btn btn-secondary disabled mb-3">-</button>
+                <div class="d-flex col-3 card-text justify-content-between align-items-center mt-4">
+                    <button class="btn btn-secondary disabled mb-3" id="speedDecrease">-</button>
                     <p class="big-number">0</p>
-                    <button class="btn btn-secondary disabled mb-3">+</button>
+                    <button class="btn btn-secondary disabled mb-3" id="speedIncrease">+</button>
                 </div>
                 <div class="d-flex col-6 justify-content-around align-items-center">
-                    <button class="btn btn-success btn-lg"><p id="start">Старт</p></button>
-                    <button class="btn btn-danger btn-lg d-none"><p id="stop">Стоп</p></button>
+                    <button class="btn btn-success btn-lg" id="btnStart" onclick="startOnClick();"><p id="start">Старт</p></button>
+                    <button class="btn btn-danger btn-lg d-none" id="btnStop" data-toggle="modal" data-target="#isSaveModal"><p id="stop">Стоп</p></button>
                 </div>
             </div>
         </div>
   
+        <!-- Модальное окно - Карточка спортсмена
+                появляется при нажатии на кнопку с именем спортсмена в левом верхнем углу экрана -->
         <div class="modal fade" id="sportsmanModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
@@ -89,14 +94,16 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary align-self-start">История тренировок</button>
+                        <button type="button" class="btn btn-outline-primary align-self-start">История тренировок</button>
                         <button type="button" class="btn btn-outline-primary">Достижения</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Назад</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Модальное окно - Информация о тренировке
+                появляется при нажатии на кнопку с именем спортсмена в правом верхнем углу экрана -->
         <div class="modal fade" id="trainingModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
@@ -129,9 +136,30 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary align-self-start">История тренировок</button>
-                        <button type="button" class="btn btn-outline-primary">Достижения</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Назад</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно - диалоговое окно сохранения
+                появляется при нажатии кнопки СТОП -->
+
+        <div class="modal fade" id="isSaveModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Сохранение</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <p>Сохранить тренировку?</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-around">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Вернуться к тренировке</button>
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick="stopOnClick();">Начать заново</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
                     </div>
                 </div>
             </div>
