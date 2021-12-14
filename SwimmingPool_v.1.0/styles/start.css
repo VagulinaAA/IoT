@@ -7,11 +7,11 @@
 }
 
 .card {
-    height: 300px;
+    height: 350px;
 }
 
 .text-position {
-    margin-top: 200px;
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -27,3 +27,4 @@
 #start, #stop {
     font-size: 35px;
 }
+

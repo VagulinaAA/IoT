@@ -235,14 +235,25 @@ var writers = [{
 
 // Start-training-window functions start
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+// var myModal = document.getElementById('myModal')
+// var myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', function () { 
-  myInput.focus()
-})
+// myModal.addEventListener('shown.bs.modal', function () { 
+//   myInput.focus()
+// })
 
 var cron;
+var pulse = 0;
+var speed = 1;
+var flag = 0;
+
+var minute = 0;
+var second = 0;
+
+var maxPulse = 0;
+var minPulse = 120;
+var totalTime;
+var totalDist = 0;
 
 function start(minute, second) {
     pause(cron);
@@ -251,9 +262,21 @@ function start(minute, second) {
             second = 0;
             minute++;
         }
+        second++;
         document.getElementById('timer-minutes').innerText = returnData(minute);
         document.getElementById('timer-seconds').innerText = ":" + returnData(second);
-        second++;
+
+        pulse = Math.round(65 + Math.random() * 10);
+        document.getElementById('pulse').innerHTML = pulse;
+        if (pulse > maxPulse)
+            maxPulse = pulse;
+        if (pulse < minPulse)
+            minPulse = pulse;
+        // speed = Math.round(speed + Math.random() * 0.5 - 0.25, 2);
+        document.getElementById('speed').innerHTML = speed;
+
+        totalTime = returnData(minute) + ":" + returnData(second);
+        totalDist = totalDist + speed / 3600 * 1000;
     }, 1000);
 }
 function pause(cron) {
@@ -263,11 +286,124 @@ function reset() {
     clearInterval(cron);
     document.getElementById('timer-minutes').innerText = '00';
     document.getElementById('timer-seconds').innerText = ':00';
+
+    pulse = 0;
+    document.getElementById('pulse').innerHTML = pulse;
+    speed = 1;
+    document.getElementById('speed').innerHTML = speed;
+    flag = 0;
 }
 
 function returnData(input) {
     return input > 9 ? input : `0${input}`
 }
+
+window.onload = function() {
+    console.log("LOADED");
+    var updateInterval = 1000; //in ms
+    var numberElements = 15;
+
+    var updateCount = 0;
+
+    var chartPulse = $("#chartPulse");
+    var chartSpeed = $("#chartSpeed");
+
+    var commonOptions = {
+        scales: {
+          xAxes: [{
+            type: 'time',
+            time: {
+              displayFormats: {
+                second: 'mm:ss'
+              }
+            }
+          }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        legend: {display: false},
+        tooltips:{
+          enabled: false
+        }
+    };
+
+    var chartPInstance = new Chart(chartPulse, {
+        type: 'line',
+        data: {
+          datasets: [{
+              label: "X Acceleration",
+              data: 0,
+              fill: false,
+              borderColor: '#343e9a',
+              borderWidth: 1
+          }]
+        },
+        options: Object.assign({}, commonOptions, {
+          title:{
+            display: true,
+            fontSize: 18
+          }
+        })
+    });
+
+    var chartSInstance = new Chart(chartSpeed, {
+        type: 'line',
+        data: {
+          datasets: [{
+              label: "X Acceleration",
+              data: 0,
+              fill: false,
+              borderColor: '#343e9a',
+              borderWidth: 1
+          }]
+        },
+        options: Object.assign({}, commonOptions, {
+          title:{
+            display: true,
+            fontSize: 18
+          }
+        })
+    });
+
+    function addData(data) {
+        if (data) {
+            chartPInstance.data.labels.push(new Date());
+            chartPInstance.data.datasets.forEach((dataset) =>{dataset.data.push(pulse)});
+            chartSInstance.data.labels.push(new Date());
+            chartSInstance.data.datasets.forEach((dataset) =>{dataset.data.push(speed)});
+            if (updateCount > numberElements) {
+                chartPInstance.data.labels.shift();
+                chartPInstance.data.datasets[0].data.shift();
+                chartSInstance.data.labels.shift();
+                chartSInstance.data.datasets[0].data.shift();
+            }
+            else updateCount++;
+            chartPInstance.update();
+            chartSInstance.update();
+        }
+    }
+
+    function updateData() {
+        console.log("Update Data");
+        setTimeout(updateData, updateInterval);
+        addData(1);
+    }
+    updateData();
+}
+
+function plusClick() {
+    speed = speed + 0.05;
+    speed = +speed.toFixed(2);
+}
+
+function minusClick() {
+    speed = speed - 0.05;
+    speed = +speed.toFixed(2);
+}
+
 function startOnClick() {
   document.getElementById("btnStart").classList.add("d-none");
   document.getElementById("btnStop").classList.remove("d-none");
@@ -280,8 +416,8 @@ function startOnClick() {
 
   plusBtn.classList.remove("btn-secondary", "disabled");
   minusBtn.classList.remove("btn-secondary", "disabled");
-  var minute = 0;
-  var second = 0;
+  totalDist = 0;
+  
   start(minute, second);
 }
 
@@ -297,8 +433,23 @@ function stopOnClick() {
 
   plusBtn.classList.add("btn-secondary", "disabled");
   minusBtn.classList.add("btn-secondary", "disabled");
+  totalDist = +totalDist.toFixed(2);
+  console.log(totalDist);
   reset();
 }
+
+function showResults() {
+    document.getElementById("totalDist").innerHTML = +totalDist.toFixed(2);
+    document.getElementById("totalTime").innerHTML = totalTime;
+    document.getElementById("minPulse").innerHTML = minPulse;
+    document.getElementById("maxPulse").innerHTML = maxPulse;
+}
+
+function saveOnClick() {
+    console.log("save");
+    stopOnClick();
+}
+
 
 // Start-training-window functions finish
 

@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="../styles/bootstrap.min.css">
 
         <script src="../scripts/script.js"></script>
+        <!-- <script type="module" src="https://cdn.plot.ly/plotly-2.8.0.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </head>
     <body class="font-settings">
         <div class="container">
@@ -19,17 +21,21 @@
             <div class="row mt-4 pb-4 justify-content-around">
                 <div class="col-5 card">
                     <div class="card-body">
-                        <div>График</div>
                         <div class="text-position">
-                            <p class="card-text">Пульс от времени</p>
+                            <p class="card-text">Скорость</p>
+                        </div>
+                        <div id="xAccel" class="x">
+                            <canvas id="chartSpeed"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="offset-2 col-5 card">
                     <div class="card-body">
-                        <div>График</div>
                         <div class="text-position">
-                            <p class="card-text">Скорость</p>
+                            <p class="card-text">Пульс от времени</p>
+                        </div>
+                        <div id="xAccel" class="x">
+                            <canvas id="chartPulse"></canvas>
                         </div>
                     </div>
                 </div>
@@ -47,7 +53,7 @@
                     <p>Пульс</p>
                 </div>
                 <div class="d-flex col-3 card-text justify-content-around align-items-center">
-                    <p class="big-number">0</p>
+                    <p id="pulse" class="big-number">0</p>
                 </div>
             </div>
             <div class="row mt-4 justify-content-around">
@@ -55,9 +61,9 @@
                     <p>Скорость</p>
                 </div>
                 <div class="d-flex col-3 card-text justify-content-between align-items-center mt-4">
-                    <button class="btn btn-secondary disabled mb-3" id="speedDecrease" onclick="plusClick(); ">-</button>
-                    <p class="big-number">0</p>
-                    <button class="btn btn-secondary disabled mb-3" id="speedIncrease">+</button>
+                    <button class="btn btn-secondary disabled mb-3" id="speedDecrease" onclick="minusClick(); ">-</button>
+                    <p id="speed" class="big-number">0</p>
+                    <button class="btn btn-secondary disabled mb-3" id="speedIncrease" onclick="plusClick();">+</button>
                 </div>
                 <div class="d-flex col-6 justify-content-around align-items-center">
                     <button class="btn btn-success btn-lg" id="btnStart" name="start" onclick="startOnClick();"><p id="start">Старт</p></button>
@@ -95,8 +101,88 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary align-self-start">История тренировок</button>
-                        <button type="button" class="btn btn-outline-primary">Достижения</button>
+                        <button type="button" class="btn btn-outline-primary align-self-start" data-toggle="modal" data-target="#historyModal">История тренировок</button>
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#achievsModal">Достижения</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно - История тренировок
+                появляется при нажатии на кнопку История тренировок в модальном окне Карточки спортсмена -->
+        <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">История тренировок</h5>
+                        <h5 class="modal-title">Достоевский Федор Михайлович</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row d-flex">
+                                <h5 class="col-3 text-center">Дата</h5>
+                                <h5 class="col-3 text-center">Пульс (max)</h5>
+                                <h5 class="col-3 text-center">Пульс (min)</h5>
+                                <h5 class="col-3 text-center">Дистанция</h5>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="col-3 text-center">19/02/2021</p>
+                                <p class="col-3 text-center">102</p>
+                                <p class="col-3 text-center">71</p>
+                                <p class="col-3 text-center">3</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="col-3 text-center">25/11/2021</p>
+                                <p class="col-3 text-center">130</p>
+                                <p class="col-3 text-center">79</p>
+                                <p class="col-3 text-center">7</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="col-3 text-center">...</p>
+                                <p class="col-3 text-center">...</p>
+                                <p class="col-3 text-center">...</p>
+                                <p class="col-3 text-center">...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно - Достижения
+                появляется при нажатии на кнопку Достижения в модальном окне Карточки спортсмена -->
+        <div class="modal fade" id="achievsModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Достижения</h5>
+                        <h5 class="modal-title">Достоевский Федор Михайлович</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Дистанция (км)</p>
+                                <p class="col-5">12</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Кол-во тренировок</p>
+                                <p class="col-5">3</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Время (мин)</p>
+                                <p class="col-5">120</p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Средний пульс (уд/мин)</p>
+                                <p class="col-5">74</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Назад</button>
                     </div>
                 </div>
@@ -116,8 +202,8 @@
                         <div class="container">
                             <div class="row d-flex">
                                 <h5 class="offset-1 col-2 text-center">Время</h5>
-                                <h5 class="offset-1 col-3 text-center">Нижняя граница пульса</h5>
-                                <h5 class="offset-1 col-3 text-center">Верхняя граница пульса</h5>
+                                <h5 class="offset-1 col-3 text-center">Пульс (min)</h5>
+                                <h5 class="offset-1 col-3 text-center">Пульс (max)</h5>
                             </div>
                             <div class="row d-flex">
                                 <p class="offset-1 col-2 text-center">20 сек</p>
@@ -160,13 +246,56 @@
                     <div class="modal-footer justify-content-around">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Вернуться к тренировке</button>
                         <button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick="stopOnClick();">Начать заново</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#saveModal" onclick="showResults();">Сохранить</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Модальное окно - просмотр результатов перед сохранением
+                появляется при нажатии на кнопку Сохранить тренировку -->
+        <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Результаты тренировки</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Дистанция (м)</p>
+                                <p id="totalDist" class="col-5"></p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Время (мин)</p>
+                                <p id="totalTime" class="col-5"></p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Пульс (min)</p>
+                                <p id="minPulse" class="col-5"></p>
+                            </div>
+                            <div class="row d-flex">
+                                <p class="offset-1 col-4">Пульс (max)</p>
+                                <p id="maxPulse" class="col-5"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-around">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveOnClick();">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="../scripts/apexcharts.min.js"></script>
     </body>
 </html>
