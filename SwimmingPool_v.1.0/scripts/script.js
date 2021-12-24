@@ -233,6 +233,10 @@ var writers = [{
     }
 }];
 
+function f_log_in() {
+    document.location.replace("sign_in.html");
+}
+
 // Start-training-window functions start
 
 // var myModal = document.getElementById('myModal')
@@ -244,7 +248,7 @@ var writers = [{
 
 var cron;
 var pulse = 0;
-var speed = 1;
+var speed = 0;
 var flag = 0;
 
 var minute = 0;
